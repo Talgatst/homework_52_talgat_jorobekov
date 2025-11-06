@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Create Task</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label>Описание задачи:</label><br>
+            <input type="text" placeholder="Описание задачи" name="description" required>
+        </p>
+        <p>
+            <label>Статус:</label><br>
+            <select name="status">
+                <option value="new">Новая</option>
+                <option value="in_progress">В процессе</option>
+                <option value="done">Сделано</option>
+            </select>
+        </p>
+        <p>
+            <label>Дата выполнения:</label><br>
+            <input type="date" name="deadline_date">
+        </p>
+        <button type="submit">Создать</button>
+    </form>
+
+    {% if created_task %}
+        <h2>Созданная задача:</h2>
+        <p>{{ created_task.description }} — Статус: {{ created_task.get_status_display }}</p>
+        {% if created_task.deadline_date %}
+            <p>Дата выполнения: {{ created_task.deadline_date|date:"d.m.Y" }}</p>
+        {% endif %}
+    {% endif %}
+
+    <p><a href="/">На главную</a></p>
+</body>
+</html>
