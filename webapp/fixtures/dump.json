@@ -1,0 +1,56 @@
+[
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "description": "Do HW 52",
+    "status": "new",
+    "deadline_date": "2025-11-03"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "description": "Do HW 53",
+    "status": "new",
+    "deadline_date": "2025-11-06"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "description": "hw_52",
+    "status": "new",
+    "deadline_date": "2025-11-03"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "description": "hw 56",
+    "status": "new",
+    "deadline_date": "2025-11-08"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$gesqRTIrPqo8jRo4rmoCOY$eZrmUtzvhiCbj9W/noSzTnoLo+E7IcYnOjhbm/F1vSg=",
+    "last_login": "2025-11-06T01:20:55.648Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-06T01:18:54.922Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
