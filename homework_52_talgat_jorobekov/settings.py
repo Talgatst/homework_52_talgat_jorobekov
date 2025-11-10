@@ -55,7 +55,7 @@ ROOT_URLCONF = 'homework_52_talgat_jorobekov.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'webapp/templates']
+        'DIRS': []
         ,
         'APP_DIRS': True,
         'OPTIONS': {
