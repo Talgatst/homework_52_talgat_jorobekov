@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ task.title }}{% endblock %}
+{% block content %}
+<p>{{ task.description }}</p>
+    <p>{{ task.status }}</p>
+    <p>{{ task.deadline_date }}</p>
+    <p>{{ task.detailed_description }}</p>
+
+
+
+<p><a href="{% url 'index' %}">Назад к списку задач</a></p>
+{% endblock %}

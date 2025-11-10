@@ -28,6 +28,12 @@ class Task(models.Model):
         blank=True,
         verbose_name="Дата выполнения"
     )
+    detailed_description = models.CharField(
+        max_length=200,
+        null=True,
+        blank=True,
+        verbose_name="Подробное описание задачи"
+    )
 
     def __str__(self):
         return self.description

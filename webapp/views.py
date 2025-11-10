@@ -1,30 +1,30 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Task
+from django.urls import reverse
 
 
-def task_list(request):
+def index(request):
     tasks = Task.objects.all()
-    return render(request, 'tasks/index.html', {'tasks': tasks})
+    return render(request, 'index.html', {'tasks': tasks})
+
+
+def task_detail(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    return render(request, 'task_detail.html', {'task': task})
 
 
 def create_task(request):
-    created_task = None
     if request.method == 'POST':
-        description = request.POST.get('description')
-        status = request.POST.get('status')
-        deadline_date = request.POST.get('deadline_date') or None
+        description = request.POST['description']
+        status = request.POST['status']
+        deadline_date = request.POST['deadline_date']
 
-        created_task = Task.objects.create(
+        task = Task.objects.create(
             description=description,
             status=status,
             deadline_date=deadline_date
         )
 
-    return render(request, 'tasks/create_task.html', {'created_task': created_task})
+        return redirect('task_detail', pk=task.pk)
 
-
-def delete_task(request, task_id):
-    task = Task.objects.get(id=task_id)
-    task.delete()
-    tasks = Task.objects.all().order_by('id')
-    return render(request, 'tasks/index.html', {'tasks': tasks})
+    return render(request, 'create_task.html')
