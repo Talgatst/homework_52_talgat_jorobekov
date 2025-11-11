@@ -1,19 +1,9 @@
 [
 {
   "model": "webapp.task",
-  "pk": 2,
-  "fields": {
-    "description": "Do HW 53",
-    "status": "new",
-    "deadline_date": "2025-11-06",
-    "detailed_description": "asdfasdfasdfa"
-  }
-},
-{
-  "model": "webapp.task",
   "pk": 3,
   "fields": {
-    "description": "hw_52",
+    "description": "hw_53",
     "status": "new",
     "deadline_date": "2025-11-03",
     "detailed_description": "asdfasdfasdf"
@@ -27,6 +17,36 @@
     "status": "new",
     "deadline_date": "2025-11-08",
     "detailed_description": "kjfslkdjflasdf"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 5,
+  "fields": {
+    "description": "оролрло",
+    "status": "new",
+    "deadline_date": "2025-11-10",
+    "detailed_description": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 6,
+  "fields": {
+    "description": "pdf",
+    "status": "in_progress",
+    "deadline_date": "2025-11-12",
+    "detailed_description": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 7,
+  "fields": {
+    "description": "stead",
+    "status": "done",
+    "deadline_date": "2025-10-01",
+    "detailed_description": "asdfadsf"
   }
 },
 {
