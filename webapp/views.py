@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Task
 from django.urls import reverse
+from webapp.forms import TaskForm
 
 
 def index(request):
@@ -15,16 +16,31 @@ def task_detail(request, pk):
 
 def create_task(request):
     if request.method == 'POST':
-        description = request.POST['description']
-        status = request.POST['status']
-        deadline_date = request.POST['deadline_date']
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save()
+            return redirect('task_detail', pk=task.pk)
+    else:
+        form = TaskForm()
+    return render(request, 'create_task.html', {'form': form, 'button_text': 'Создать'})
 
-        task = Task.objects.create(
-            description=description,
-            status=status,
-            deadline_date=deadline_date
-        )
 
-        return redirect('task_detail', pk=task.pk)
+def edit_task(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('task_detail', pk=task.pk)
+    else:
+        form = TaskForm(instance=task)
+    return render(request, 'edit_task.html', {'form': form, 'button_text': 'Редактировать', 'task': task})
 
-    return render(request, 'create_task.html')
+
+def delete_task(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('index')
+    return render(request, 'delete_task.html', {'task': task})
+

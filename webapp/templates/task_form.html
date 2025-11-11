@@ -1,0 +1,18 @@
+{% csrf_token %}
+<p>
+    <label>Описание задачи:</label><br>
+    {{ form.description }}
+</p>
+<p>
+    <label>Статус:</label><br>
+    {{ form.status }}
+</p>
+<p>
+    <label>Дата выполнения:</label><br>
+    {{ form.deadline_date }}
+</p>
+<p>
+    <label>Подробное описание задачи:</label><br>
+    {{ form.detailed_description }}
+</p>
+<button type="submit">{{ button_text }}</button>
